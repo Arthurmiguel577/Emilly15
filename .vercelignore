@@ -1,0 +1,8 @@
+# Ignorar a pasta de vídeos brutos (muito pesada)
+videos/brutos/
+
+# Ignorar arquivos de sistema/configuração local
+.git
+.gemini
+node_modules
+*.log

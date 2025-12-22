@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus 15 Anos | Memorial Eterno</title>
+    <meta name="description" content="Um memorial digital celebrando uma noite inesquecível.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blush: '#FCE4EC',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB',
+                            midnight: '#0F172A',
+                            surface: '#1E293B'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Montserrat"', 'sans-serif'],
+                    },
+                    screens: {
+                        'xs': '475px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0F172A; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+
+        /* Utilities */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        ::selection { background: #D4AF37; color: #0F172A; }
+
+        /* Animations */
+        @keyframes pulse-gold {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .btn-pulse { animation: pulse-gold 2s infinite; }
+
+        .play-overlay {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            width: 50px; height: 50px;
+            background: rgba(212, 175, 55, 0.8);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s ease; pointer-events: none; z-index: 20; opacity: 0.8;
+        }
+        .gallery-item:hover .play-overlay {
+            transform: translate(-50%, -50%) scale(1.2);
+            background: #D4AF37; opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brand-midnight text-gray-100 font-sans antialiased overflow-x-hidden">
+
+    <!-- 1️⃣ HERO SECTION (Mobile Optimized) -->
+    <header class="relative h-[100svh] w-full overflow-hidden flex items-center justify-center">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="imgs/emilly-decoracao-mesa.png" alt="Background" class="w-full h-full object-cover opacity-50 scale-105 animate-[pulse_15s_ease-in-out_infinite]">
+            <div class="absolute inset-0 bg-gradient-to-b from-brand-midnight/40 via-brand-midnight/60 to-brand-midnight"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-6" data-aos="fade-up" data-aos-duration="1200">
+            <p class="text-brand-gold tracking-[0.4em] uppercase text-xs md:text-sm mb-4 font-medium drop-shadow-md">Memórias Eternas</p>
+            <h1 class="font-serif text-5xl xs:text-6xl md:text-8xl lg:text-9xl text-white mb-2 leading-tight drop-shadow-lg">
+                Meus <span class="text-brand-gold italic">15</span> Anos
+            </h1>
+            <h2 class="font-sans text-xl md:text-3xl font-light tracking-wide text-gray-200 mt-4">
+                Emilly
+            </h2>
+            <div class="w-20 h-[1px] bg-brand-gold mx-auto my-8"></div>
+            <p class="font-serif italic text-brand-blush/90 text-lg">20 de Dezembro, 2025</p>
+            
+            <div class="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fa-solid fa-chevron-down text-brand-gold text-2xl opacity-70"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2️⃣ INTRO -->
+    <section class="relative py-20 px-6 max-w-3xl mx-auto text-center">
+        <div data-aos="fade-up">
+            <i class="fa-solid fa-star text-brand-gold text-xl mb-6 opacity-80"></i>
+            <h3 class="font-serif text-2xl md:text-4xl leading-snug text-white mb-6">
+                “Uma noite que brilhou e ficará para <span class="text-brand-gold italic">sempre</span> em nossos corações.”
+            </h3>
+            <p class="text-gray-400 font-light leading-relaxed text-sm md:text-base">
+                Não foi apenas uma festa. Foi o encerramento de um ciclo e o início de um novo capítulo. 
+                Cada sorriso e cada detalhe foram capturados para que o tempo jamais apague o que sentimos.
+            </p>
+        </div>
+    </section>
+
+    <!-- 3️⃣ DESTAQUES (Grid Layout) -->
+    <section class="py-10 px-4 md:px-10 max-w-[1600px] mx-auto">
+        <div class="flex items-end justify-between mb-8 px-2" data-aos="fade-right">
+            <div>
+                <h4 class="text-brand-gold uppercase tracking-widest text-xs font-bold mb-1">Galeria</h4>
+                <h2 class="font-serif text-3xl md:text-4xl text-white">Destaques</h2>
+            </div>
+            <a href="galeria/todas.html" class="text-xs uppercase tracking-widest text-gray-400 hover:text-brand-gold transition pb-1 border-b border-transparent hover:border-brand-gold">Ver Tudo <i class="fa-solid fa-arrow-right ml-1"></i></a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[250px] md:auto-rows-[300px]">
+            
+            <!-- Video Valsa (2x2) -->
+            <div class="group relative row-span-2 col-span-1 sm:col-span-2 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-type="video" data-src="videos/valsa.mp4">
+                <img src="imgs/emilly-valsa-1.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Valsa">
+                <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                <div class="play-overlay"><i class="fa-solid fa-play text-brand-midnight ml-1"></i></div>
+                <div class="absolute bottom-5 left-5 z-20">
+                    <p class="text-white font-serif text-2xl drop-shadow-md">A Valsa</p>
+                </div>
+            </div>
+
+            <!-- Foto 1 (Decor) -->
+            <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-delay="100" data-type="image" data-src="imgs/emilly-decoracao-2.png">
+                <img src="imgs/emilly-decoracao-2.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Decoração">
+            </div>
+
+             <!-- Foto 2 (Bolo) -->
+             <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+             data-aos="fade-up" data-type="image" data-src="imgs/emilly-decoracao-bolo.png">
+                <img src="imgs/emilly-decoracao-bolo.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bolo">
+            </div>
+
+            <!-- Video Pista (2x2) -->
+            <div class="group relative row-span-2 col-span-1 sm:col-span-2 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-delay="100" data-type="video" data-src="videos/pista.mp4">
+                <img src="imgs/emilly-robo-dancante.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pista">
+                <div class="play-overlay"><i class="fa-solid fa-play text-brand-midnight ml-1"></i></div>
+                <div class="absolute bottom-5 left-5 z-20">
+                    <p class="text-white font-serif text-2xl drop-shadow-md">A Pista</p>
+                </div>
+            </div>
+
+            <!-- Foto 3 (Primas) -->
+            <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-type="image" data-src="imgs/emilly-danca-primas.png">
+                <img src="imgs/emilly-danca-primas.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Primas">
+            </div>
+            
+            <!-- Foto 4 (Detalhe Bolo) -->
+            <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-delay="200" data-type="image" data-src="imgs/emilly-bolo.png">
+                <img src="imgs/emilly-bolo.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Bolo Detalhe">
+            </div>
+
+            <!-- Foto 5 (Dança Pose) -->
+            <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-type="image" data-src="imgs/emilly-danca-pose.png">
+                <img src="imgs/emilly-danca-pose.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Dança">
+            </div>
+
+            <!-- Foto 6 (Mágico) -->
+            <div class="group relative col-span-1 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
+                 data-aos="fade-up" data-type="image" data-src="imgs/emilly-magico.png">
+                <img src="imgs/emilly-magico.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Mágico">
+            </div>
+        </div>
+        
+        <div class="text-center mt-10" data-aos="fade-up">
+            <a href="galeria/todas.html" class="inline-block px-10 py-3 border border-brand-gold text-brand-gold uppercase tracking-widest text-xs font-bold hover:bg-brand-gold hover:text-brand-midnight transition duration-300 rounded-sm">
+                Abrir Galeria Completa
+            </a>
+        </div>
+    </section>
+
+    <!-- 4️⃣ STORYTELLING (Alternating) -->
+    <section class="py-16 px-4 max-w-7xl mx-auto space-y-16 md:space-y-24">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-16" data-aos="fade-up">
+            <div class="w-full md:w-1/2 aspect-[4/5] md:aspect-auto md:h-[500px] relative rounded-lg overflow-hidden border border-brand-gold/20 shadow-2xl">
+                <img src="imgs/emilly-valsa-3.png" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Valsa">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-left">
+                <h4 class="text-brand-gold text-xs tracking-widest uppercase mb-2">22:30h</h4>
+                <h3 class="font-serif text-3xl md:text-5xl mb-4 text-white">Emoção Pura</h3>
+                <p class="text-gray-400 font-light leading-relaxed mb-6 text-sm md:text-base">
+                    O mundo parou. Nos braços do meu pai, senti o peso e a leveza de crescer. A música preenchia o salão, mas eu só ouvia meu coração.
+                </p>
+                <a href="galeria/todas.html" class="text-brand-blush hover:text-brand-gold transition border-b border-brand-blush hover:border-brand-gold pb-1 uppercase text-xs tracking-wider">Ver fotos</a>
+            </div>
+        </div>
+
+        <div class="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16" data-aos="fade-up">
+            <div class="w-full md:w-1/2 aspect-[4/5] md:aspect-auto md:h-[500px] relative rounded-lg overflow-hidden border border-brand-gold/20 shadow-2xl">
+                <img src="imgs/emilly-robo-festa.jpg" class="w-full h-full object-cover hover:scale-105 transition duration-700" alt="Festa">
+            </div>
+            <div class="w-full md:w-1/2 text-center md:text-right">
+                <h4 class="text-brand-gold text-xs tracking-widest uppercase mb-2">23:45h</h4>
+                <h3 class="font-serif text-3xl md:text-5xl mb-4 text-white">A Festa</h3>
+                <p class="text-gray-400 font-light leading-relaxed mb-6 text-sm md:text-base">
+                    Quando a pista abriu, a energia mudou. Luzes neon, risadas e a certeza de que a juventude é um presente. Dançamos até o amanhecer.
+                </p>
+                <a href="galeria/todas.html" class="text-brand-blush hover:text-brand-gold transition border-b border-brand-blush hover:border-brand-gold pb-1 uppercase text-xs tracking-wider">Ver fotos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5️⃣ AFTERMOVIE SECTION (Fixed) -->
+    <section class="py-20 bg-gradient-to-b from-brand-midnight to-brand-surface relative">
+        <div class="max-w-5xl mx-auto px-4 text-center" data-aos="zoom-in">
+            <h2 class="font-serif text-3xl md:text-4xl mb-10 text-white">O Filme da Noite</h2>
+            
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer gallery-item"
+                 data-type="video"
+                 data-src="videos/aftermovie.mp4">
+                <!-- Thumbnail -->
+                <img src="imgs/emilly-entrada-magico.png" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 transition duration-500" alt="Aftermovie Thumb">
+                
+                <!-- Play Button -->
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-gold rounded-full flex items-center justify-center btn-pulse group-hover:scale-110 transition duration-300 shadow-[0_0_30px_rgba(212,175,55,0.4)]">
+                        <i class="fa-solid fa-play text-brand-midnight text-2xl ml-1"></i>
+                    </div>
+                </div>
+                
+                <div class="absolute bottom-6 left-6 text-left">
+                    <p class="text-white font-bold text-lg md:text-xl drop-shadow-md">Aftermovie Oficial</p>
+                    <p class="text-gray-200 text-xs md:text-sm drop-shadow-md opacity-80">Assista aos melhores momentos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6️⃣ VERSÍCULO -->
+    <section class="py-24 px-6 max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <div class="mb-10">
+            <i class="fa-solid fa-crown text-brand-gold text-2xl opacity-80 mb-4"></i>
+            <h2 class="font-serif text-3xl md:text-4xl text-white">Gratidão</h2>
+        </div>
+        <div class="p-8 border border-brand-gold/20 rounded-lg bg-white/5 backdrop-blur-sm">
+            <p class="font-serif text-lg md:text-2xl leading-relaxed text-gray-200 italic">
+                “Alegre-se, jovem, na sua juventude! Siga os caminhos do seu coração...”
+            </p>
+            <p class="text-brand-gold uppercase tracking-[0.2em] text-xs font-bold mt-4">Eclesiastes 11:9</p>
+        </div>
+    </section>
+
+    <!-- 7️⃣ FOOTER -->
+    <footer class="relative py-20 bg-black flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        <div data-aos="fade-up">
+            <h2 class="font-serif text-2xl md:text-4xl text-white mb-4">
+                “Alguns momentos vivem para sempre.”
+            </h2>
+            <p class="text-gray-500 text-xs tracking-widest uppercase">Emilly 15 Anos &copy; 2025</p>
+        </div>
+    </footer>
+
+    <!-- LIGHTBOX (Shared) -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/98 hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <button id="lightbox-close" class="absolute top-4 right-4 p-4 text-white/60 hover:text-brand-gold transition z-50">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+        <div id="lightbox-content" class="w-full h-full flex items-center justify-center p-2 md:p-8">
+            <img id="lightbox-img" src="" class="hidden max-h-full max-w-full object-contain shadow-2xl">
+            <video id="lightbox-video" controls class="hidden max-h-full max-w-full w-full md:w-auto shadow-2xl border border-white/10"></video>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 1000 });
+
+        // Mobile Menu / Interactions
+        // (Optional: Add a real menu if needed, keeping it simple for now)
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lightbox-img');
+        const lbVid = document.getElementById('lightbox-video');
+        
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const src = item.dataset.src;
+                const type = item.dataset.type;
+                
+                lbImg.classList.add('hidden');
+                lbVid.classList.add('hidden');
+                lbVid.pause();
+
+                if (type === 'video') {
+                    lbVid.src = src;
+                    lbVid.classList.remove('hidden');
+                    lbVid.play().catch(e => console.log("Autoplay blocked"));
+                } else {
+                    lbImg.src = src;
+                    lbImg.classList.remove('hidden');
+                }
+                
+                lightbox.classList.remove('hidden');
+                setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        const closeLb = () => {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lbVid.pause();
+                lbVid.src = "";
+            }, 300);
+            document.body.style.overflow = 'auto';
+        };
+
+        document.getElementById('lightbox-close').onclick = closeLb;
+        lightbox.onclick = (e) => { if(e.target === lightbox || e.target.id === 'lightbox-content') closeLb(); };
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLb(); });
+    </script>
+</body>
+</html>
