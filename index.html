@@ -135,7 +135,7 @@
             
             <!-- Video Valsa (2x2) -->
             <div class="group relative row-span-2 col-span-1 sm:col-span-2 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
-                 data-aos="fade-up" data-type="video" data-src="videos/valsa.mp4">
+                 data-aos="fade-up" data-type="youtube" data-src="https://www.youtube.com/embed/bqj3YIn8F9k">
                 <img src="imgs/emilly-valsa-1.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Valsa">
                 <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
                 <div class="play-overlay"><i class="fa-solid fa-play text-brand-midnight ml-1"></i></div>
@@ -158,7 +158,7 @@
 
             <!-- Video Pista (2x2) -->
             <div class="group relative row-span-2 col-span-1 sm:col-span-2 rounded-lg overflow-hidden cursor-pointer gallery-item shadow-lg" 
-                 data-aos="fade-up" data-delay="100" data-type="video" data-src="videos/pista.mp4">
+                 data-aos="fade-up" data-delay="100" data-type="youtube" data-src="https://www.youtube.com/embed/2TDMH-wyHm8">
                 <img src="imgs/emilly-robo-dancante.png" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Pista">
                 <div class="play-overlay"><i class="fa-solid fa-play text-brand-midnight ml-1"></i></div>
                 <div class="absolute bottom-5 left-5 z-20">
@@ -235,8 +235,8 @@
             <h2 class="font-serif text-3xl md:text-4xl mb-10 text-white">O Filme da Noite</h2>
             
             <div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-2xl border border-white/10 group cursor-pointer gallery-item"
-                 data-type="video"
-                 data-src="videos/aftermovie.mp4">
+                 data-type="youtube"
+                 data-src="https://www.youtube.com/embed/WIhhgDm3TcU">
                 <!-- Thumbnail -->
                 <img src="imgs/emilly-entrada-magico.png" class="w-full h-full object-cover opacity-70 group-hover:opacity-50 transition duration-500" alt="Aftermovie Thumb">
                 
@@ -287,6 +287,7 @@
         <div id="lightbox-content" class="w-full h-full flex items-center justify-center p-2 md:p-8">
             <img id="lightbox-img" src="" class="hidden max-h-full max-w-full object-contain shadow-2xl">
             <video id="lightbox-video" controls class="hidden max-h-full max-w-full w-full md:w-auto shadow-2xl border border-white/10"></video>
+            <iframe id="lightbox-youtube" class="hidden max-h-full max-w-full w-full aspect-video shadow-2xl border border-white/10" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
 
@@ -302,6 +303,7 @@
         const lightbox = document.getElementById('lightbox');
         const lbImg = document.getElementById('lightbox-img');
         const lbVid = document.getElementById('lightbox-video');
+        const lbYt = document.getElementById('lightbox-youtube');
         
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
@@ -310,12 +312,17 @@
                 
                 lbImg.classList.add('hidden');
                 lbVid.classList.add('hidden');
+                lbYt.classList.add('hidden');
                 lbVid.pause();
+                lbYt.src = ""; // Stop previous YouTube video
 
                 if (type === 'video') {
                     lbVid.src = src;
                     lbVid.classList.remove('hidden');
                     lbVid.play().catch(e => console.log("Autoplay blocked"));
+                } else if (type === 'youtube') {
+                    lbYt.src = src;
+                    lbYt.classList.remove('hidden');
                 } else {
                     lbImg.src = src;
                     lbImg.classList.remove('hidden');
@@ -333,6 +340,7 @@
                 lightbox.classList.add('hidden');
                 lbVid.pause();
                 lbVid.src = "";
+                lbYt.src = ""; // Stop YouTube video
             }, 300);
             document.body.style.overflow = 'auto';
         };
